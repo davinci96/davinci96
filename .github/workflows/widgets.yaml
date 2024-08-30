@@ -1,0 +1,23 @@
+name: Update README
+
+on:
+    schedule:
+        - cron: '30 18 * * *'
+jobs:
+    update-readme:
+        name: Update README with metrics
+        runs-on: ubuntu-latest
+        steps:
+            -
+                name: Most used (with details)
+                uses: lowlighter/metrics@latest
+                with:
+                    filename: metrics.plugin.languages.details.svg
+                    token: ${{ secrets.GH_TOKEN }}
+                    base: ""
+                    plugin_languages: yes
+                    plugin_languages_ignored: >-
+                        html, css, tex, less, makefile, qmake, lex, cmake, shell,
+                        gnuplot
+                    plugin_languages_details: bytes-size, percentage
+                    plugin_languages_limit: 6
