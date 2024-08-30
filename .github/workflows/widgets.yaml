@@ -1,8 +1,8 @@
 name: Update README
 
-on:
-    schedule:
-        - cron: '30 18 * * *'
+on: push
+    # schedule:
+    #     - cron: '30 18 * * *'
 jobs:
     update-readme:
         name: Update README with metrics
